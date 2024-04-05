@@ -9,7 +9,7 @@ public class GuestClient {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String phoneNumber;
-	private String email;
+	private String name;
 
 	@OneToOne
 	private Appointment appointment;
@@ -18,10 +18,10 @@ public class GuestClient {
 	public GuestClient() {
 	}
 
-	public GuestClient(Long id, String phoneNumber, String email, Appointment appointment) {
+	public GuestClient(Long id, String phoneNumber, String name, Appointment appointment) {
 		this.id = id;
 		this.phoneNumber = phoneNumber;
-		this.email = email;
+		this.name = name;
 		this.appointment = appointment;
 	}
 
@@ -41,12 +41,12 @@ public class GuestClient {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getName() {
+		return name;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setName(String email) {
+		this.name = email;
 	}
 
 	public Appointment getAppointment() {
@@ -59,7 +59,7 @@ public class GuestClient {
 
 	@Override
 	public String toString() {
-		return "GuestClient [id=" + id + ", phoneNumber=" + phoneNumber + ", email=" + email + ", appointment="
+		return "GuestClient [id=" + id + ", phoneNumber=" + phoneNumber + ", email=" + name + ", appointment="
 				+ appointment + "]";
 	}
 }

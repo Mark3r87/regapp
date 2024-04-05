@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface GuestClientRepository extends JpaRepository<GuestClient, Long> {
 	GuestClient findByPhoneNumber(String phoneNumber);
 
-	GuestClient findByEmail(String email);
+	GuestClient findByName(String name);
 }

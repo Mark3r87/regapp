@@ -3,7 +3,7 @@ package lt.mark3r.registrationapp.dto;
 public class GuestClientDTO {
 	private Long id;
 	private String phoneNumber;
-	private String email;
+	private String name;
 	private Long appointmentId;
 
 	// Constructors
@@ -11,11 +11,11 @@ public class GuestClientDTO {
 		super();
 	}
 
-	public GuestClientDTO(Long id, String phoneNumber, String email, Long appointmentId) {
+	public GuestClientDTO(Long id, String phoneNumber, String name, Long appointmentId) {
 		super();
 		this.id = id;
 		this.phoneNumber = phoneNumber;
-		this.email = email;
+		this.name = name;
 		this.appointmentId = appointmentId;
 	}
 
@@ -37,12 +37,12 @@ public class GuestClientDTO {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getName() {
+		return name;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Long getAppointmentId() {
@@ -55,7 +55,7 @@ public class GuestClientDTO {
 
 	@Override
 	public String toString() {
-		return "GuestClientDTO [id=" + id + ", phoneNumber=" + phoneNumber + ", email=" + email + ", appointmentId="
+		return "GuestClientDTO [id=" + id + ", phoneNumber=" + phoneNumber + ", name=" + name + ", appointmentId="
 				+ appointmentId + "]";
 	}
 }

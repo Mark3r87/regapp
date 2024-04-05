@@ -8,8 +8,7 @@ public class GuestClientMapper {
 		GuestClient guestClient = new GuestClient();
 		guestClient.setId(dto.getId());
 		guestClient.setPhoneNumber(dto.getPhoneNumber());
-		guestClient.setEmail(dto.getEmail());
-		// Assuming Appointment is managed elsewhere
+		guestClient.setName(dto.getName());
 		return guestClient;
 	}
 
@@ -17,8 +16,7 @@ public class GuestClientMapper {
 		GuestClientDTO dto = new GuestClientDTO();
 		dto.setId(guestClient.getId());
 		dto.setPhoneNumber(guestClient.getPhoneNumber());
-		dto.setEmail(guestClient.getEmail());
-		// Assuming you handle Appointment separately
+		dto.setName(guestClient.getName());
 		return dto;
 	}
 }
