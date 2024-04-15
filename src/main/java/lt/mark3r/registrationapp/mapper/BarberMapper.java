@@ -14,7 +14,6 @@ public class BarberMapper {
 		barber.setSpecialties(dto.getSpecialties());
 		barber.setServicesOffered(dto.getServicesOffered());
 		barber.setHasBeenRated(dto.isHasBeenRated());
-		// Note: workingSchedules are typically managed separately due to their complexity
 		return barber;
 	}
 
