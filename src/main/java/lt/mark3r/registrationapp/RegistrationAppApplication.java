@@ -1,31 +1,35 @@
 package lt.mark3r.registrationapp;
 
-import lt.mark3r.registrationapp.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class RegistrationAppApplication {
 
-	@Autowired
-	private BarberRepository barberRepository;
-
-	@Autowired
-	private GuestClientRepository guestClientRepository;
-
-	@Autowired
-	private AppointmentRepository appointmentRepository;
-
-	@Autowired
-	private BarberServRepository barberServRepository;
-
-	@Autowired
-	private WorkingScheduleRepository workingScheduleRepository;
-
 	public static void main(String[] args) {
 		SpringApplication.run(RegistrationAppApplication.class, args);
 	}
+
+
+
+	/*@Bean
+	public CommandLineRunner createDefaultAdmin(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		return args -> {
+			String defaultAdminUsername = "admin";
+			if (!userRepository.existsByUsername(defaultAdminUsername)) {
+				AppUser admin = new AppUser();
+				admin.setUsername(defaultAdminUsername);
+				admin.setPassword(passwordEncoder.encode("password")); // replace with a secure password
+				admin.setRole(Role.ADMIN);
+				userRepository.save(admin);
+			}
+		};
+	}*/
+
+
+
+
+
 
 	/*@Bean
 	CommandLineRunner initDatabase() {

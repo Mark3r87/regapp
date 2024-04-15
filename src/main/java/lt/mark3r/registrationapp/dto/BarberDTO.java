@@ -13,11 +13,15 @@ public class BarberDTO {
 	private Double rating;
 	private List<TypeOfService> servicesOffered;
 	private boolean hasBeenRated;
+	private AppUserDTO appUser;
 
 	public BarberDTO() {
 	}
 
-	public BarberDTO(Long id, String name, String location, List<String> specialties, String contactInformation, Double rating, List<TypeOfService> servicesOffered, boolean hasBeenRated) {
+	public BarberDTO(Long id, String name, String location,
+	                 List<String> specialties, String contactInformation,
+	                 Double rating, List<TypeOfService> servicesOffered,
+	                 boolean hasBeenRated, AppUserDTO appUser) {
 		this.id = id;
 		this.name = name;
 		this.location = location;
@@ -26,9 +30,19 @@ public class BarberDTO {
 		this.rating = rating;
 		this.servicesOffered = servicesOffered;
 		this.hasBeenRated = hasBeenRated;
+		this.appUser = appUser;
 	}
 
 	// Getters and Setters
+
+
+	public AppUserDTO getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(AppUserDTO appUser) {
+		this.appUser = appUser;
+	}
 
 
 	public Long getId() {
@@ -106,6 +120,7 @@ public class BarberDTO {
 				", rating=" + rating +
 				", servicesOffered=" + servicesOffered +
 				", hasBeenRated=" + hasBeenRated +
+				", appUser=" + appUser + // added this line
 				'}';
 	}
 }

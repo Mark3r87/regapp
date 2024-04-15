@@ -5,6 +5,7 @@ import lt.mark3r.registrationapp.services.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class BarberController {
 	private BarberService barberService;
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public ResponseEntity<BarberDTO> registerBarber(@RequestBody BarberDTO barberDTO) {
 		BarberDTO registeredBarberDTO = barberService.registerBarber(barberDTO);
 		return new ResponseEntity<>(registeredBarberDTO, HttpStatus.CREATED);
@@ -43,6 +45,7 @@ public class BarberController {
 	}
 
 	@PutMapping("/{id}")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_BARBER')")
 	public ResponseEntity<BarberDTO> updateBarber(@PathVariable Long id, @RequestBody BarberDTO barberDTO) {
 		Optional<BarberDTO> updatedBarber = barberService.updateBarber(id, barberDTO);
 		return updatedBarber
@@ -51,6 +54,7 @@ public class BarberController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public ResponseEntity<Void> deleteBarber(@PathVariable Long id) {
 		Optional<BarberDTO> existingBarber = barberService.getBarber(id);
 		if (existingBarber.isPresent()) {

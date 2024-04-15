@@ -11,6 +11,10 @@ public class Barber {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+
+	@OneToOne
+	@JoinColumn(name = "app_user_id")
+	private AppUser appUser;
 	@OneToMany(mappedBy = "barber")
 	private List<WorkingSchedule> workingSchedules;
 	private String location;
@@ -28,7 +32,10 @@ public class Barber {
 	}
 
 
-	public Barber(Long id, String name, List<WorkingSchedule> workingSchedules, String location, List<String> specialties, String contactInformation, Double rating, List<TypeOfService> servicesOffered, boolean hasBeenRated) {
+	public Barber(Long id, String name, List<WorkingSchedule> workingSchedules,
+	              String location, List<String> specialties,
+	              String contactInformation, Double rating,
+	              List<TypeOfService> servicesOffered, boolean hasBeenRated, AppUser appUser) {
 		this.id = id;
 		this.name = name;
 		this.workingSchedules = workingSchedules;
@@ -38,6 +45,15 @@ public class Barber {
 		this.rating = rating;
 		this.servicesOffered = servicesOffered;
 		this.hasBeenRated = hasBeenRated;
+		this.appUser = appUser;
+	}
+
+	public AppUser getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
 	public Long getId() {
