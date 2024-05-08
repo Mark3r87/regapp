@@ -41,7 +41,9 @@ public class RegistrationAppApplication {
 		SpringApplication.run(RegistrationAppApplication.class, args);
 	}
 
-
+	/**
+	 * This bean should be commented or removed once first user is created
+	 */
 	@Bean
 	public CommandLineRunner createDefaultBarber(UserRepository userRepository, BarberRepository barberRepository,
 	                                             BarberServRepository barberServRepository,
