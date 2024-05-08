@@ -1,14 +1,37 @@
+/**
+ * File: AppUser.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the AppUser class, which represents a user in the system.
+ * Each user has a role and can be associated with a Barber.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+import java.util.List;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
-public class AppUser {
+@Table(name = "_user")
+public class AppUser implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String username;
+	@GeneratedValue
+	private Integer id;
+	private String firstName;
+	private String lastName;
+	private String email;
 	private String password;
 
 	@Enumerated(EnumType.STRING)
@@ -17,53 +40,37 @@ public class AppUser {
 	@OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)
 	private Barber barber;
 
-	public AppUser() {
+
+	/**
+	 * Getters and setters, toString
+	 */
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority(role.name()));
 	}
 
-	public AppUser(String username, String password, Role role) {
-		this.username = username;
-		this.password = password;
-		this.role = role;
-		this.barber = new Barber();
-	}
-
-	public Barber getBarber() {
-		return barber;
-	}
-
-	public void setBarber(Barber barber) {
-		this.barber = barber;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	@Override
 	public String getUsername() {
-		return username;
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
 	}
 
-	public String getPassword() {
-		return password;
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
 	}
 
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 }

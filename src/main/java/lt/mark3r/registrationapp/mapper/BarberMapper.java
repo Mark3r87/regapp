@@ -1,9 +1,25 @@
+/**
+ * File: BarberMapper.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the BarberMapper class, which is responsible for mapping between Barber and BarberDTO objects.
+ */
+
 package lt.mark3r.registrationapp.mapper;
 
 import lt.mark3r.registrationapp.dto.BarberDTO;
 import lt.mark3r.registrationapp.model.Barber;
 
+
+/**
+ * The BarberMapper class is responsible for mapping between Barber and BarberDTO objects.
+ * It provides methods to map from a Barber entity to a BarberDTO, and vice versa.
+ */
 public class BarberMapper {
+
+	/**
+	 * Maps a BarberDTO to a Barber entity.
+	 */
 	public static Barber toEntity(BarberDTO dto) {
 		Barber barber = new Barber();
 		barber.setId(dto.getId());
@@ -17,6 +33,9 @@ public class BarberMapper {
 		return barber;
 	}
 
+	/**
+	 * Maps a Barber entity to a BarberDTO object.
+	 */
 	public static BarberDTO toDTO(Barber barber) {
 		BarberDTO dto = new BarberDTO();
 		dto.setId(barber.getId());

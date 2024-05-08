@@ -1,3 +1,10 @@
+/**
+ * File: Role.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the Role enum, which represents the role of a user in the system.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 public enum Role {

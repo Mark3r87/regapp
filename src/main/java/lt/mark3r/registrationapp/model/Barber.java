@@ -1,3 +1,11 @@
+/**
+ * File: Barber.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the Barber class, which represents a barber in the system.
+ * Each barber is associated with a list of working schedules, a list of specialties, and a list of services offered.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 
@@ -12,10 +20,10 @@ public class Barber {
 	private Long id;
 	private String name;
 
-	@OneToOne
-	@JoinColumn(name = "app_user_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "app_user_id", referencedColumnName = "id")
 	private AppUser appUser;
-	@OneToMany(mappedBy = "barber")
+	@OneToMany(mappedBy = "barber", cascade = CascadeType.ALL)
 	private List<WorkingSchedule> workingSchedules;
 	private String location;
 	@ElementCollection
@@ -48,6 +56,9 @@ public class Barber {
 		this.appUser = appUser;
 	}
 
+	/**
+	 * Getters and setters, toString
+	 */
 	public AppUser getAppUser() {
 		return appUser;
 	}

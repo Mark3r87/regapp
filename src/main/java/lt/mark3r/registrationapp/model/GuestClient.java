@@ -1,3 +1,11 @@
+/**
+ * File: GuestClient.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the GuestClient class, which represents a guest client in the system.
+ * Each GuestClient is associated with a specific Appointment.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 
@@ -25,6 +33,9 @@ public class GuestClient {
 		this.appointment = appointment;
 	}
 
+	/**
+	 * Getters and setters, toString
+	 */
 	public Long getId() {
 		return id;
 	}

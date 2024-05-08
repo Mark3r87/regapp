@@ -1,3 +1,11 @@
+/**
+ * File: BarberServ.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the BarberServ class, which represents a service provided by a barber in the system.
+ * Each BarberServ is associated with a specific Barber and a type of service.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 import jakarta.persistence.*;
@@ -19,6 +27,9 @@ public class BarberServ {
 	public BarberServ() {
 	}
 
+	/**
+	 * Getters and setters, toString
+	 */
 	public BarberServ(Barber barber, TypeOfService service, int defaultDurationInMinutes) {
 		this.barber = barber;
 		this.service = service;

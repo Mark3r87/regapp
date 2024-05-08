@@ -1,9 +1,21 @@
+/**
+ * File: BarberDTO.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the BarberDTO class, which is a Data Transfer Object (DTO) for barbers.
+ */
+
 package lt.mark3r.registrationapp.dto;
 
 import lt.mark3r.registrationapp.model.TypeOfService;
 
 import java.util.List;
 
+/**
+ * The BarberDTO class is a Data Transfer Object (DTO) for barbers.
+ * It contains information about a barber, including its ID, name, location, specialties, contact information, rating,
+ * services offered, rating status, and associated AppUser.
+ */
 public class BarberDTO {
 	private Long id;
 	private String name;
@@ -15,9 +27,25 @@ public class BarberDTO {
 	private boolean hasBeenRated;
 	private AppUserDTO appUser;
 
+	/**
+	 * Default constructor.
+	 */
 	public BarberDTO() {
 	}
 
+	/**
+	 * Constructor with parameters.
+	 *
+	 * @param id                 The ID of the barber.
+	 * @param name               The name of the barber.
+	 * @param location           The location of the barber.
+	 * @param specialties        The specialties of the barber.
+	 * @param contactInformation The contact information of the barber.
+	 * @param rating             The rating of the barber.
+	 * @param servicesOffered    The services offered by the barber.
+	 * @param hasBeenRated       The rating status of the barber.
+	 * @param appUser            The associated AppUser of the barber.
+	 */
 	public BarberDTO(Long id, String name, String location,
 	                 List<String> specialties, String contactInformation,
 	                 Double rating, List<TypeOfService> servicesOffered,
@@ -33,9 +61,9 @@ public class BarberDTO {
 		this.appUser = appUser;
 	}
 
-	// Getters and Setters
-
-
+	/**
+	 * Getters and setters, toString
+	 */
 	public AppUserDTO getAppUser() {
 		return appUser;
 	}

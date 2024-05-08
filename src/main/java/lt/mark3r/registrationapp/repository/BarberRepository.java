@@ -1,3 +1,11 @@
+/**
+ * File: BarberRepository.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the BarberRepository interface, which is responsible for providing database operations for
+ * Barber objects.
+ */
+
 package lt.mark3r.registrationapp.repository;
 
 import lt.mark3r.registrationapp.model.Barber;

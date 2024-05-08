@@ -1,3 +1,12 @@
+/**
+ * File: WorkingSchedule.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the WorkingSchedule class, which represents a working schedule of a barber in the system.
+ * Each WorkingSchedule is associated with a specific Barber.
+ */
+
+
 package lt.mark3r.registrationapp.model;
 
 import jakarta.persistence.*;
@@ -28,6 +37,10 @@ public class WorkingSchedule {
 		this.barber = barber;
 	}
 
+
+	/**
+	 * Getters and setters, toString
+	 */
 	public Long getId() {
 		return id;
 	}

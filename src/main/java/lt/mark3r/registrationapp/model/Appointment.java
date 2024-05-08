@@ -1,3 +1,11 @@
+/**
+ * File: Appointment.java
+ * Author: Gediminas Kaminskas
+ * Date: 2024-05-08
+ * This file contains the Appointment class, which represents an appointment in the system.
+ * Each appointment is associated with a specific Barber, a type of service, and a GuestClient.
+ */
+
 package lt.mark3r.registrationapp.model;
 
 import jakarta.persistence.*;
@@ -30,6 +38,13 @@ public class Appointment {
 		this.barber = barber;
 		this.service = service;
 		this.guestClient = guestClient;
+	}
+
+	/**
+	 * Getters and setters, toString
+	 */
+	public String getTimeSlot() {
+		return this.time.toString();
 	}
 
 	public Long getId() {
